@@ -1,6 +1,7 @@
-const _ = require ("lodash")
+const {createReadStream} = require('fs')
 
-const items = [1, [2, [3, [4]]]]
-const newItems = _.flattenDeep(items)
-console.log(newItems)
-console.log("Hello World!!")
+const stream = createReadStream('./content/second.txt')
+
+stream.on('data', (result)=>{
+    console.log(result)
+})
